@@ -1,5 +1,6 @@
 var readLineSync = require("readline-sync");
-var userName = readLineSync.question("What is your name? ");
+var chalk = require("chalk");
+var userName = readLineSync.question(chalk.magenta.italic("What is your name? "));
 console.log("Welcome " + userName + " do you know sushma?");
 var score = 0;
 var counts = 0;
@@ -23,13 +24,13 @@ var questions = [{
 }]
 
 function quiz(question, answer) {
-    var userAnswer = readLineSync.question(question);
+    var userAnswer = readLineSync.question(chalk.blue.italic(question));
     if (userAnswer.toUpperCase() === answer.toUpperCase()) {
         score = score + 1;
-        console.log("correct, your score is " + score);
+        console.log(chalk.yellow.italic("correct, your score is " + score));
     }
     else {
-        console.log("wrong");
+        console.log(chalk.red.italic("wrong"));
     }
     console.log("---------------------------------");
 }
@@ -39,10 +40,11 @@ for (var i = 0; i < questions.length; i++) {
     quiz(questions[i].question, questions[i].answer);
 }
 
-console.log("Hey, " + userName + " your total score is: " + score);
+console.log(chalk.green.italic("Hey, " + userName + " your total score is: " + score));
+
 
 /*
-//as the program restarts the values get reset so the below commented code cannot be used
+//as the program restarts the values get reset
 var user_history = {
   name : userName,
   score: score,
@@ -66,7 +68,7 @@ var high_scores = [{
     score: "5",
 }]
 //first compare between the existing high scores
-console.log("The top two highest scores so far:");
+console.log(chalk.blue.italic("The top two highest scores so far:"));
 for (var i = 0; i < high_scores.length; i++) {
     console.log(high_scores[i].name + " : " + high_scores[i].score);
 }
@@ -87,10 +89,22 @@ for (var i = 0; i < high_scores.length; i++) {
     }
 }
 if (counts === 1 || counts === 2) {
-    console.log("\nYou have scored the highest, send me the screenshot with that score! I will update the top score list");
+    console.log(chalk.green.italic("\nYou have scored the highest, send me the screenshot with that score! I will update the top score list"));
 }
 if (counts === 0) {
-    console.log("\nYou haven't scored the highest..! All the best for your next turn");
+    console.log(chalk.red.italic("\nYou haven't scored the highest..! All the best for your next turn"));
 }
 
+console.log(chalk.magenta.italic("\n$$$$$$$$$$$$$$$$$$$$$ Feedback time $$$$$$$$$$$$$$$$$$$$$"));
+if (readLineSync.keyInYN(chalk.italic('\nDo you Like to share your feedback?'))) {
+    console.log(chalk.italic("\nLet us know your feedback on this Quiz challenge CLI!"))
+    var selection = ['Excellent', 'Best', 'Good', 'Bad'];
+    var index = readLineSync.keyInSelect(selection, chalk.magenta.italic('Select the options below?'));
+    if (index > -1) {
+        console.log(chalk.italic("\nThanks for your feedback!"));
+    }
+}
+else {
+    console.log("Thank you!");
+}
 
