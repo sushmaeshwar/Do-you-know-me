@@ -9,6 +9,8 @@ This is a CLI app.
 - npm such as readline-sync
 - CHALK library is used for styling and coloring the fonts
 
-    - *[Link to CHALK]*(https://www.npmjs.com/package/chalk)
+    - *[Link to CHALK](https://www.npmjs.com/package/chalk)*
 
 - repl.it is a free IDE
+
+[CLICK HERE TO SEE THE PROJECT LIVE ON CLI](https://replit.com/@SUSHMA25/Task-15-Do-you-know-me?embed=1)
