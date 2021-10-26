@@ -44,7 +44,7 @@ console.log(chalk.green.italic("Hey, " + userName + " your total score is: " + s
 
 
 /*
-//as the program restarts the values get reset
+//as the program restarts the values get reset so the below code is commented
 var user_history = {
   name : userName,
   score: score,
