@@ -5,7 +5,7 @@ This is a CLI app.
 
 > The tech stack includes:
 
-- Javascipt
+- Javascript
 - npm such as readline-sync
 - CHALK library is used for styling and coloring the fonts
 
